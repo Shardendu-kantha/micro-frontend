@@ -15,7 +15,7 @@ const prodConfig = {
         new ModuleFederationPlugin({
             name: 'container',
             remotes: {
-                marketing: `marketing@h${domain}/marketing/remoteEntry.js` // assuming remotrEntry will be localted inside marketing folder
+                marketing: `marketing@h${domain}/marketing/latest/remoteEntry.js` // assuming remotrEntry will be localted inside marketing/latest folder
             },
             shared: packageJson.dependencies, // all the dev dependencies will be shared
         }),
