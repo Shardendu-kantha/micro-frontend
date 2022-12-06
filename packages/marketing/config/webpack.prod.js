@@ -7,7 +7,7 @@ const prodConfig = {
     mode: 'production',
     output: {
         filename: '[name].[contenthash].js',
-        publicPath: '/marketing/latest/',
+        publicPath: '/marketing/latest/', // all the prod urls should be accesible by /marketing/latest/, because S3 is storing those inside marketing/latest/
     },
     plugins: [
         new ModuleFederationPlugin({
