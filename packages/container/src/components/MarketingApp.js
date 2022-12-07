@@ -11,8 +11,12 @@ export default () => {
             onNavigate: ({ pathname: nextPathname }) => {
                 // pathname is propery inside location object being passed by marketing navigation
                 // update current path of container's browser history object
+                // update this only if current path and next path name are differernt
+                const { pathname } = history.location;
 
-                history.push(nextPathname);
+                if(pathname !== nextPathname) {
+                    history.push(nextPathname);
+                }
             }
         });
     });
