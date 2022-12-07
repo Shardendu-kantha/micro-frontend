@@ -7,7 +7,7 @@ export default () => {
     const history = useHistory();
 
     useEffect(() => {
-        mount(ref.current, {
+       const { onParentNavigate } = mount(ref.current, {
             onNavigate: ({ pathname: nextPathname }) => {
                 // pathname is propery inside location object being passed by marketing navigation
                 // update current path of container's browser history object
@@ -19,7 +19,8 @@ export default () => {
                 }
             }
         });
-    });
 
+        history.listen(onParentNavigate);
+    }, []); // should run only once
     return <div ref={ref} />
 };

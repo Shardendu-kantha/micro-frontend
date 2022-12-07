@@ -13,6 +13,20 @@ const mount = (el, { onNavigate }) => {
     }
 
     ReactDOM.render(<App history={history} />, el);
+
+    // some function should be returned to container
+    // by this we can communicate down to marketing from container
+    return {
+        onParentNavigate({ pathname: nextPathname }) {
+            // update current path of marketing's memory history object
+            // update this only if current path and next path name are differernt
+            const { pathname } = history.location;
+
+            if(pathname !== nextPathname) {
+                history.push(nextPathname);
+            }
+        }
+    }
 }
 
 // If we are in development and in isolation,
