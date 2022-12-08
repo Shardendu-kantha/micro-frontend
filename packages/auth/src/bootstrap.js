@@ -5,8 +5,10 @@ import { createMemoryHistory, createBrowserHistory } from 'history';
 import App from './App';
 
 // Mount function to start up the app
-const mount = (el, { onNavigate, defaultHistory }) => {
-    const history = defaultHistory || createMemoryHistory();
+const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
+    const history = defaultHistory || createMemoryHistory({
+        initialEntries: [initialPath], // this is useful in case of nested routes and it sets the initial path in auth's memory histiry.
+    });
 
     if (onNavigate) {
         history.listen(onNavigate);
