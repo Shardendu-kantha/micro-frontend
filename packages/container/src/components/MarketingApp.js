@@ -8,6 +8,7 @@ export default () => {
 
     useEffect(() => {
        const { onParentNavigate } = mount(ref.current, {
+            initialPath: history.location.pathname,
             onNavigate: ({ pathname: nextPathname }) => {
                 // pathname is propery inside location object being passed by marketing navigation
                 // update current path of container's browser history object
