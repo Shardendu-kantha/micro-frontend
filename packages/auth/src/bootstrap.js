@@ -5,7 +5,7 @@ import { createMemoryHistory, createBrowserHistory } from 'history';
 import App from './App';
 
 // Mount function to start up the app
-const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
+const mount = (el, { onSignIn, onNavigate, defaultHistory, initialPath }) => {
     const history = defaultHistory || createMemoryHistory({
         initialEntries: [initialPath], // this is useful in case of nested routes and it sets the initial path in auth's memory histiry.
     });
@@ -14,7 +14,7 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
         history.listen(onNavigate);
     }
 
-    ReactDOM.render(<App history={history} />, el);
+    ReactDOM.render(<App history={history} onSignIn={onSignIn} />, el);
 
     // some function should be returned to container
     // by this we can communicate down to auth from container
