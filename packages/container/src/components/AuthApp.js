@@ -21,5 +21,6 @@ export default ({ onSignIn }) => {
 
         history.listen(onParentNavigate);
     }, []); // should run only once
+    
     return <div ref={ref} />
 };

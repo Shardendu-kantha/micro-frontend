@@ -23,5 +23,6 @@ export default () => {
 
         history.listen(onParentNavigate);
     }, []); // should run only once
+    
     return <div ref={ref} />
 };
